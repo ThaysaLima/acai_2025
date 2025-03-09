@@ -22,4 +22,24 @@ def criar_database():
         )
     ''')
 
-    
+    #açaí
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS acai (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        descricao TEXT,
+
+        disponibilidade_balcao REAL DEFAULT 0.0,
+        unidade_balcao TEXT DEFAULT 'kg',
+
+        disponibilidade_freezer REAL DEFAULT 0.0,
+        unidade_freezer TEXT DEFAULT 'kg'
+        )
+    ''')
+
+    conector.commit()
+    conector.close()
+
+if __name__ == "__main__":
+    criar_database()
+    print("Banco de dados criado com sucesso!")
