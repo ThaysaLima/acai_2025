@@ -1,15 +1,10 @@
 import os
 import sqlite3
 
+
 def conectar_bd():
-    # Caminho da pasta onde o banco será salvo
-    pasta_bd = os.path.join(os.path.dirname(__file__), "bancodados")
-
-    if not os.path.exists(pasta_bd):
-        os.makedirs(pasta_bd)
-
-    caminho_db = os.path.join(pasta_bd, "acai_loja.db")
-
+    # Caminho correto sem criar pasta duplicada
+    caminho_db = os.path.join(os.path.dirname(os.path.dirname(__file__)), "bancodados", "acai_loja.db")
     return sqlite3.connect(caminho_db)
 
 
